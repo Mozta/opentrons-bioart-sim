@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opentrons-bioart-sim"
+version = "1.0.0"
+description = "Local simulator & visualizer for Opentrons OT-2 bio-art protocols — no robot required"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Rafael Pérez Aguirre", email = "[EMAIL_ADDRESS]"},
+]
+keywords = ["opentrons", "bio-art", "htgaa", "simulation", "synthetic-biology", "fluorescent-proteins"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "opentrons",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff",
+]
+
+[project.scripts]
+opentrons-bioart-sim = "opentrons_bioart_sim.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Mozta/opentrons-bioart-sim"
+"Bug Tracker" = "https://github.com/Mozta/opentrons-bioart-sim/issues"
+"HTGAA Course" = "https://htgaa.org"
+"Opentrons Art Designer" = "https://opentrons-art.rcdonovan.com"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
